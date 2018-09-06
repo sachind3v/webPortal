@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Start a New Topic{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a></li>
+  <li class="breadcrumb-item active">New topic</li>
+{% endblock %}
+
+{% block content %}
+ <!--  <form method="post" novalidate>
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+    <button type="submit" class="btn btn-success">Post</button>
+  </form> -->
+   <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-8" >
+      <div class="card" >
+        <div class="card-body" style="background-color: transparent">
+          <h3 class="card-title">New_Topic</h3>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-primary btn-block">POSTs</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
